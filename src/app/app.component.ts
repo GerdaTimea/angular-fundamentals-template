@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   combineLatest,
+  debounceTime,
   filter,
   forkJoin,
   map,
@@ -36,12 +37,11 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   initCharacterEvents(): void {
-    // 3. Add debounce to prevent API calls until user stop typing.
-
     this.charactersResults$ = this.searchTermByCharacters
-      .pipe(
-        filter((item) => item.length >= 3),
-        switchMap((item) => this.mockDataService.getCharacters(item))
+      .pipe(        
+        filter((item) => item.length >= 3),                        
+        switchMap((item) => this.mockDataService.getCharacters(item)),
+        debounceTime(500)
       );
   }
 
