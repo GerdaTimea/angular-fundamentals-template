@@ -31,26 +31,17 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   changeCharactersInput(element: any): void {
-    // 1.1. Add functionality to changeCharactersInput method. Changes searchTermByCharacters Subject value on input change.
     const inputValue: string = element.target.value;
-    // YOUR CODE STARTS HERE
-
-    // YOUR CODE ENDS HERE
+    this.searchTermByCharacters.next(inputValue);
   }
 
   initCharacterEvents(): void {
-    // 1.2. Add API call on each user input. Use mockDataService.getCharacters - to make get request.
-
     // 2. Since we don't want to spam our service add filter by input value and do not call API until a user enters at least 3 chars.
 
     // 3. Add debounce to prevent API calls until user stop typing.
 
     this.charactersResults$ = this.searchTermByCharacters
-        .pipe
-        // YOUR CODE STARTS HERE
-
-        // YOUR CODE ENDS HERE
-        ();
+      .pipe(switchMap((item) => this.mockDataService.getCharacters(item)));
   }
 
   loadCharactersAndPlanet(): void {
