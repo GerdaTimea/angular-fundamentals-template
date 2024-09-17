@@ -15,6 +15,15 @@
         background: #016486;
     }
 
+    &:focus {
+        background: #fff;
+        color: #007298;
+    }
+
+    &:active {
+        background: rgb(248, 177, 136);
+    }
+
     &__single-icon {
         padding: 13px;
     }
