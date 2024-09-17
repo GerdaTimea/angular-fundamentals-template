@@ -17,6 +17,7 @@ export class AppComponent {
     this.isLoggedIn = !this.isLoggedIn;
   }
 
+  courseCardData: Course = mockedCoursesList[0]; 
   coursesList: Course[] = mockedCoursesList;
 }
 
