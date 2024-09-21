@@ -7,15 +7,15 @@
         <div class="course-card__info-text">
             <div>
               <b>Authors: </b>
-              {{ courseCardData.authors.join(', ') }}
+              {{ courseCardData.authors }}
             </div>
-            <div><b>Duration: </b><span class="course-card__duration">{{ convertDuration(courseCardData.duration) }}</span></div>
+            <div><b>Duration: </b><span class="course-card__duration">{{ courseCardData.duration }}</span></div>
             <div><b>Created: </b><span class="course-card__date">{{ courseCardData.creationDate }}</span></div>
         </div>
         <div class="course-card__info-actions">
             <app-button [buttonText]="'show course'" (click)="showCourse()"></app-button>    
             <div *ngIf="editable" class="course-card__buttons">
-               <ng-content></ng-content>
+              <ng-content></ng-content>
             </div>
         </div>
     </div>

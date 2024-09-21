@@ -1,21 +1,12 @@
-import { Component, Input } from '@angular/core';
-
-interface Course {
-  title: string,
-  description: string,
-  id: string,
-  creationDate: Date,
-  duration: number,
-  authors: string[]
-}
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Course } from '@app/shared/models/course.model';
 
 @Component({
   selector: 'app-course-info',
   templateUrl: './course-info.component.html',
-  styleUrls: ['./course-info.component.scss']
+  styleUrls: ['./course-info.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseInfoComponent {
-  // Use the names for the input `course`.
-  
   @Input() course!: Course;
 }
