@@ -17,6 +17,16 @@ export class AppComponent {
     this.isLoggedIn = !this.isLoggedIn;
   }
 
-  courseCardData: Course = mockedCoursesList[0];
+  // courseCardData: Course = mockedCoursesList[0];
   coursesList: Course[] = mockedCoursesList;
+
+  selectedCourse?: Course;
+
+  showCourseInfo(course: Course): void {
+    this.selectedCourse = course;
+  }
+
+  hideCourseInfo(): void {
+    this.selectedCourse = undefined;
+  }
 }

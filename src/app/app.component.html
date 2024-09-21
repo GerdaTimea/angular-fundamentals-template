@@ -13,12 +13,16 @@
   </app-info>
 
   <!-- Course Card component -->
-  <app-course-card [courseCardData]="courseCardData">
+  <!-- <app-course-card [courseCardData]="courseCardData" [editable]="true">
     <app-button [iconName]="'trash-can'"></app-button>
     <app-button [iconName]="'pencil'"></app-button>
-  </app-course-card>
+  </app-course-card> -->
   
-  <!-- <app-courses-list [courses]="coursesList"></app-courses-list> -->
+  <!-- Courses List component -->
+  <app-courses-list *ngIf="!selectedCourse" [courses]="coursesList" [editable]="false" (showCourse)="showCourseInfo($event)"></app-courses-list>
+
+  <!-- Course Info component -->
+  <!-- <app-course-info *ngIf="selectedCourse" [course]="selectedCourse" (backButtonClicked)="hideCourseInfo()"></app-course-info> -->
 
    <!-- Login Form component -->
   <!--<app-login-form></app-login-form>-->

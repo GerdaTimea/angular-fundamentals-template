@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Course } from '@app/shared/models/course.model';
 
 @Component({
@@ -9,4 +9,10 @@ import { Course } from '@app/shared/models/course.model';
 })
 export class CourseInfoComponent {
   @Input() course!: Course;
+
+  @Output() backButtonClicked = new EventEmitter<void>();
+
+  onBackButtonClicked(): void {
+    this.backButtonClicked.emit();
+  }
 }

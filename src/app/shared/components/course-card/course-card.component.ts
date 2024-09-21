@@ -15,11 +15,11 @@ import { Course } from "@app/shared/models/course.model";
 })
 export class CourseCardComponent {
   @Input() courseCardData!: Course;
-  @Input() editable: boolean = true;
+  @Input() editable!: boolean;
 
-  @Output() clickOnShow = new EventEmitter<void>();
+  @Output() clickOnShow = new EventEmitter<Course>();
 
   showCourse(): void {
-    this.clickOnShow.emit();
+    this.clickOnShow.emit(this.courseCardData);
   }
 }

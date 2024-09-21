@@ -15,7 +15,7 @@ import { Course } from "@app/shared/models/course.model";
 })
 export class CoursesListComponent {
   @Input() courses!: Course[];
-  @Input() editable: boolean = true;
+  @Input() editable!: boolean;
 
   @Output() showCourse = new EventEmitter<Course>();
   @Output() editCourse = new EventEmitter<Course>();
