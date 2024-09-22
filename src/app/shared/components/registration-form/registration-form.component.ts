@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { emailAddressValidator } from '@app/shared/directives/email.directive';
+// import { emailAddressValidator } from '@app/shared/directives/email.directive';     // validate with ValidatorFn
 
 @Component({
   selector: 'app-registration-form',
@@ -14,7 +14,8 @@ export class RegistrationFormComponent {
   constructor() {
     this.registrationForm = new FormGroup({
       name: new FormControl('', [ Validators.required, Validators.minLength(6) ]),
-      email: new FormControl('', [ Validators.required, emailAddressValidator() ]),
+      // email: new FormControl('', [ Validators.required, emailAddressValidator() ]),    // validate with ValidatorFn
+      email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required)
     });
   }

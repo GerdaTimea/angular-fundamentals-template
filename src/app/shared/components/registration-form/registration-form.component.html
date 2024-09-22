@@ -12,7 +12,7 @@
       </div>
       <div class="form__control">
         <label for="email">Email</label>
-        <input type="text" id="email" placeholder="Input text" formControlName="email"/>
+        <input type="text" id="email" placeholder="Input text" formControlName="email" emailValidator/>
         <span id="emailErrorMessage" class="text-danger">
           <span *ngIf="(isSubmitted || registrationForm.controls['email'].touched) && registrationForm.controls['email'].hasError('required')">Email is required.</span>
           <br/>

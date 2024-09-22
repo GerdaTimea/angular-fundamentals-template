@@ -1,5 +1,5 @@
 <!-- Search component -->
-<app-search></app-search>
+<app-search [placeholder]="'Input text'"></app-search>
 
 <!-- Courses List component -->
 <app-courses-list *ngIf="!selectedCourse" [courses]="coursesList" [editable]="false" (showCourse)="showCourseInfo($event)"></app-courses-list>
