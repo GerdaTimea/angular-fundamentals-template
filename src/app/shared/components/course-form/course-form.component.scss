@@ -34,4 +34,10 @@
     margin-left: 4px;
     cursor: pointer;
   }
+
+  & .form__action {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+  }
 }

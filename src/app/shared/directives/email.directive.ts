@@ -6,7 +6,6 @@ export function emailAddressValidator(): ValidatorFn {
 
     return (control: AbstractControl): ValidationErrors | null => {    
         const valid = regex.test(control.value);
-        console.log("emailAddressValidatorFn: " + valid);
         if (valid) {
             return null;
         } else {
