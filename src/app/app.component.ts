@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
-import { mockedAuthorsList, mockedCoursesList } from "./shared/mocks/mock";
-import { Course } from "./shared/models/course.model";
+
 
 @Component({
   selector: "app-root",
@@ -18,15 +17,4 @@ export class AppComponent {
   }
 
   // courseCardData: Course = mockedCoursesList[0];
-  coursesList: Course[] = mockedCoursesList;
-
-  selectedCourse?: Course;
-
-  showCourseInfo(course: Course): void {
-    this.selectedCourse = course;
-  }
-
-  hideCourseInfo(): void {
-    this.selectedCourse = undefined;
-  }
 }

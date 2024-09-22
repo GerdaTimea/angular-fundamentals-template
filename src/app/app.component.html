@@ -4,13 +4,14 @@
   <app-button *ngIf="isLoggedIn" [buttonText]="'logout'" (click)="logTheUser()"></app-button>
 </app-header>
 <div class="app-root">
-  <!-- Search component -->
-  <!--<app-search></app-search>-->
-
+  
   <!-- Info component -->
   <!-- <app-info [title]="'Your List Is Empty'" [text]="'Please use \'Add New Course\' button to add your first course'">
     <app-button [buttonText]="'add new course'"></app-button>
   </app-info> -->
+
+  <!-- Courses component -->
+  <app-courses></app-courses>
 
   <!-- Course Card component -->
   <!-- <app-course-card [courseCardData]="courseCardData" [editable]="true">
@@ -18,20 +19,14 @@
     <app-button [iconName]="'pencil'"></app-button>
   </app-course-card> -->
   
-  <!-- Courses List component -->
-  <!-- <app-courses-list *ngIf="!selectedCourse" [courses]="coursesList" [editable]="false" (showCourse)="showCourseInfo($event)"></app-courses-list> -->
-
-  <!-- Course Info component -->
-  <!-- <app-course-info *ngIf="selectedCourse" [course]="selectedCourse" (backButtonClicked)="hideCourseInfo()"></app-course-info> -->
-
-   <!-- Login Form component -->
+  <!-- Login Form component -->
   <!-- <app-login-form></app-login-form> -->
 
   <!-- Registration Form component -->
   <!-- <app-registration-form></app-registration-form> -->
 
   <!-- Course Form component -->
-  <app-course-form></app-course-form>
+  <!-- <app-course-form></app-course-form> -->
 
   <!-- Modal component -->
   <!-- <app-modal [message]="'Message'" [title]="'Title'" [okButtonText]="'Ok'" [cancelButtonText]="'Cancel'"></app-modal> -->

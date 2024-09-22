@@ -9,8 +9,8 @@
               <b>Authors: </b>
               {{ courseCardData.authors }}
             </div>
-            <div><b>Duration: </b><span class="course-card__duration">{{ courseCardData.duration }}</span></div>
-            <div><b>Created: </b><span class="course-card__date">{{ courseCardData.creationDate }}</span></div>
+            <div><b>Duration: </b><span class="course-card__duration">{{ courseCardData.duration | duration }}</span></div>
+            <div><b>Created: </b><span class="course-card__date">{{ courseCardData.creationDate | customDate }}</span></div>
         </div>
         <div class="course-card__info-actions">
             <app-button [buttonText]="'show course'" (click)="showCourse()"></app-button>    

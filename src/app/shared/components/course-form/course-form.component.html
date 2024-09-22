@@ -32,7 +32,7 @@
         <div class="course__flex">
           <input type="number" id="duration" placeholder="Input duration" formControlName="duration"/>
           <div class="course__duration">
-            :: Duration :::
+            {{ courseForm.controls['duration'].value | duration }}
           </div>
         </div>
         <span id="durationErrorMessage" class="text-danger">
