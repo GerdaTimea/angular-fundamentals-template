@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
   AbstractControl,
   FormArray,
@@ -29,6 +29,7 @@ export function authorsNameValidator(): ValidatorFn {
   selector: 'app-course-form',
   templateUrl: './course-form.component.html',
   styleUrls: ['./course-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseFormComponent {
   courseForm!: FormGroup;

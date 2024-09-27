@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { mockedCoursesList } from '@app/shared/mocks/mock';
 import { Course } from '@app/shared/models/course.model';
 
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
-  styleUrls: ['./courses.component.scss']
+  styleUrls: ['./courses.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CoursesComponent {
   coursesList: Course[] = mockedCoursesList;

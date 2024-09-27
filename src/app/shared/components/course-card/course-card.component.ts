@@ -11,7 +11,7 @@ import { Course } from "@app/shared/models/course.model";
   selector: "app-course-card",
   templateUrl: "./course-card.component.html",
   styleUrls: ["./course-card.component.scss"],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseCardComponent {
   @Input() courseCardData!: Course;

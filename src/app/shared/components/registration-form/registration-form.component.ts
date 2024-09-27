@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 // import { emailAddressValidator } from '@app/shared/directives/email.directive';     // validate with ValidatorFn
 
@@ -6,6 +6,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   selector: 'app-registration-form',
   templateUrl: './registration-form.component.html',
   styleUrls: ['./registration-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RegistrationFormComponent {
   registrationForm!: FormGroup;
