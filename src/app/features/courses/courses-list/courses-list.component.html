@@ -2,7 +2,7 @@
   <div *ngFor="let course of courses">
     <app-course-card [courseCardData]="course" [editable]="editable" (clickOnShow)="onShowCourse($event)">
       <app-button [iconName]="'trash-can'"></app-button>
-      <app-button [iconName]="'pencil'"></app-button>
+      <app-button [iconName]="'pencil'" routerLink="edit/{{course.id}}" routerLinkActive="active"></app-button>
     </app-course-card> 
   </div>
 </div>

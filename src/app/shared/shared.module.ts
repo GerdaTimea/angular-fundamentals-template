@@ -16,6 +16,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { DurationPipe } from './pipes/duration.pipe';
 import { CustomDatePipe } from './pipes/custom-date.pipe';
 import { EmailValidatorDirective } from '@shared/directives/email.directive';
+import { LoginFormModule } from './components/login-form/login-form.module';
+import { RegistrationFormModule } from './components/registration-form/registration-form.module';
 
 const components = [
   HeaderComponent,
@@ -39,6 +41,8 @@ const components = [
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
+    LoginFormModule,
+    RegistrationFormModule
   ],
   exports: [components]
 })

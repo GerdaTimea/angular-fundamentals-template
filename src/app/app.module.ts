@@ -12,6 +12,7 @@ import { CoursesComponent } from './features/courses/courses.component';
 import { CourseInfoModule } from './features/course-info/course-info.module';
 import { CoursesModule } from './features/courses/courses.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CourseInfoModule,
     CoursesModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [AuthorizedGuard, NotAuthorizedGuard, CoursesService, CoursesStoreService],
   bootstrap: [AppComponent],

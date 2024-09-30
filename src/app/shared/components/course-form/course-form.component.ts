@@ -7,6 +7,9 @@ import {
   ValidatorFn,
   Validators
 } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { mockedAuthorsList, mockedCoursesList } from '@app/shared/mocks/mock';
+import { Course } from '@app/shared/models/course.model';
   
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -33,9 +36,13 @@ export function authorsNameValidator(): ValidatorFn {
 })
 export class CourseFormComponent {
   courseForm!: FormGroup;
+ 
   isSubmitted: boolean = false;
 
-  constructor(public fb: FormBuilder, public library: FaIconLibrary) {
+  constructor(
+    private route: ActivatedRoute, 
+    public fb: FormBuilder, 
+    public library: FaIconLibrary) {
     library.addIconPacks(fas);
     this.courseForm = this.fb.group({
       title: ['', [ Validators.required, Validators.minLength(2) ]],
@@ -45,6 +52,23 @@ export class CourseFormComponent {
       courseAuthors: this.fb.array([]),
       duration: ['', [ Validators.required, Validators.min(0) ]]
     });    
+  }
+
+  ngOnInit() {
+    const courseId = this.route.snapshot.paramMap.get('id'); 
+    let selectedCourse = mockedCoursesList.find((element) => element.id === courseId);
+    if (selectedCourse) {      
+      this.courseForm.controls['title'].setValue(selectedCourse.title);
+      this.courseForm.controls['description'].setValue(selectedCourse.description);
+      this.courseForm.controls['duration'].setValue(selectedCourse.duration);
+      selectedCourse.authors.forEach(authorId => {
+        let courseAuthor = this.fb.group({
+          id: [authorId],
+          name: [mockedAuthorsList.find((author) => author.id === authorId)?.name]
+        });
+        this.courseAuthors.push(courseAuthor);
+      })
+    }
   }
 
   get authors(): FormArray {

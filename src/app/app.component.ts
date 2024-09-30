@@ -12,9 +12,5 @@ export class AppComponent {
 
   isLoggedIn: boolean = false;
 
-  logTheUser() {
-    this.isLoggedIn = !this.isLoggedIn;
-  }
-
   // courseCardData: Course = mockedCoursesList[0];
 }
