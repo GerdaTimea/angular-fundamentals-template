@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CourseFormComponent, LoginFormComponent, RegistrationFormComponent } from './shared/components';
 import { CoursesComponent } from './features/courses/courses.component';
 import { CourseInfoComponent } from './features/course-info/course-info.component';
+import { AdminGuard } from './user/guards/admin.guard';
 
 export const routes: Routes = [
     {
@@ -22,13 +23,15 @@ export const routes: Routes = [
     }, 
     {
         path: 'courses/add',
-        component: CourseFormComponent
+        component: CourseFormComponent,
         //loadComponent: () => import('src/app/shared/components/course-form/course-form.component').then(c => c.CourseFormComponent)
+        canActivate: [AdminGuard]
     },
     {
         path: 'courses/edit/:id',
-        component: CourseFormComponent
+        component: CourseFormComponent,
         //loadComponent: () => import('src/app/shared/components/course-form/course-form.component').then(c => c.CourseFormComponent)
+        canActivate: [AdminGuard]
     },
     {
         path: 'courses/:id',

@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CoursesStoreService } from '@app/services/courses-store.service';
 import { mockedCoursesList } from '@app/shared/mocks/mock';
 import { Course } from '@app/shared/models/course.model';
 
@@ -10,17 +11,18 @@ import { Course } from '@app/shared/models/course.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CoursesComponent {
-  coursesList: Course[] = mockedCoursesList;
+  coursesList: Course[] = [];
   
   selectedCourse?: Course;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private coursesStoreService: CoursesStoreService) {}
   
-  ngOnInit() { 
-    const courseId = this.route.snapshot.paramMap.get('id');  
-    if (courseId) {
-      this.selectedCourse = this.coursesList.find((element) => element.id === courseId);
-    }
+  ngOnInit() {       
+    this.coursesStoreService.getAll();
+    this.coursesStoreService.courses$.subscribe({
+      next: (resp) => { this.coursesList = (resp as Course[]); },
+      error: (err) => { console.error('Error: ', err); }
+    });
   }
 
   showCourseInfo(course: Course): void {

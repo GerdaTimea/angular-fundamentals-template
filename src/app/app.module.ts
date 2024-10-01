@@ -13,6 +13,7 @@ import { CourseInfoModule } from './features/course-info/course-info.module';
 import { CoursesModule } from './features/courses/courses.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AppRoutingModule } from './app-routing.module';
     CoursesModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [AuthorizedGuard, NotAuthorizedGuard, CoursesService, CoursesStoreService],
   bootstrap: [AppComponent],
