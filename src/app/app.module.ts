@@ -40,7 +40,13 @@ import { coursesReducer } from './store/courses/courses.reducer';
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot(effects) 
   ],
-  providers: [AuthorizedGuard, NotAuthorizedGuard, CoursesService, CoursesStoreService],
+  providers: [
+    AuthorizedGuard,
+    NotAuthorizedGuard,
+    CoursesService,
+    CoursesStoreService,
+    {provide: Window, useValue: window}
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

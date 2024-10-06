@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { Course } from '@app/shared/models/course.model';
 import { requestAllCourses } from '@app/store/courses/courses.actions';
 import { CoursesState } from '@app/store/courses/courses.reducer';
@@ -18,7 +18,7 @@ export class CoursesComponent implements OnInit{
   
   selectedCourse?: Course;
 
-  constructor(private route: ActivatedRoute, private store: Store<CoursesState>  ) {
+  constructor(private route: Router, private store: Store<CoursesState>  ) {
     this.store.dispatch(requestAllCourses());
   }
 

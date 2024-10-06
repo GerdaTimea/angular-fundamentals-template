@@ -5,13 +5,24 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { CoursesComponent } from './courses.component';
 import { CoursesListComponent } from './courses-list/courses-list.component';
+import { CourseInfoComponent } from '../course-info/course-info.component';
 
-const routes: Routes = [ 
-  { 
-    path: 'courses', 
-    component: CoursesComponent 
-  } 
-];
+const routes: Routes = [
+  {
+    path: '',
+    component: CoursesComponent,
+    children: [
+      {
+        path: '',
+        component: CoursesListComponent
+      },
+      {
+        path: ':id',
+        component: CourseInfoComponent
+      }
+    ]
+  }
+]
 
 @NgModule({
   declarations: [
