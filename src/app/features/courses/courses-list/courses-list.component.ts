@@ -14,7 +14,7 @@ import { Course } from "@app/shared/models/course.model";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CoursesListComponent {
-  @Input() courses!: Course[];
+  @Input() courses?: Course[] | null;
   @Input() editable!: boolean;
 
   @Output() showCourse = new EventEmitter<Course>();

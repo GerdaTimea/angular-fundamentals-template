@@ -1,9 +1,9 @@
 <!-- Search component -->
-<app-search *ngIf="!selectedCourse" [placeholder]="'Input text'"></app-search>
+<!-- <app-search *ngIf="!selectedCourse" [placeholder]="'Input text'"></app-search> -->
 
 <!-- Courses List component -->
-<app-courses-list *ngIf="!selectedCourse" [courses]="coursesList" [editable]="true" (showCourse)="showCourseInfo($event)"></app-courses-list>
+<app-courses-list [courses]="coursesList$ | async" [editable]="true" (showCourse)="showCourseInfo($event)"></app-courses-list>
 
  <!-- Course Info component -->
-<app-course-info *ngIf="selectedCourse" [course]="selectedCourse" (backButtonClicked)="hideCourseInfo()"></app-course-info>
+<!-- <app-course-info *ngIf="selectedCourse" [course]="selectedCourse" (backButtonClicked)="hideCourseInfo()"></app-course-info> -->
 
